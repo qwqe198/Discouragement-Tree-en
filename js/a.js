@@ -383,7 +383,7 @@ addLayer("a", {
         return gain.floor()
     },
     prestigeButtonText() {
-        return "+ " + formatWhole(layers.a.getResetGain()) + " 声望点(pp)"
+        return "+ " + formatWhole(layers.a.getResetGain()) + "Prestige Points (pp)"
     },
 
     passiveGeneration() {
@@ -393,4 +393,5 @@ addLayer("a", {
      update(diff) {
  if (hasUpgrade("cq", 32) && player.a.points.sub(1).gte(n(hasMilestone("l", 32) ? "1e10000" : "1e14000").mul(n(1e308).pow(getBuyableAmount("a", 11))).mul(n(1e10).pow(getBuyableAmount("a", 11).pow(2))))) setBuyableAmount("a", 11, getBuyableAmount("a", 11).add(hasUpgrade("grz", 11)?2:1))
 }
+
 })
