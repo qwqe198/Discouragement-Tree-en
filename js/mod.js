@@ -1,6 +1,6 @@
 let modInfo = {
     name: "Discouragement Tree",
-    id: "Such_A_Stupid_Game",
+    id: "Such_A_Stupid_Gameen",
     author: "QwQe308 and 22222",
     pointsName: "Points",
     discordName: "",
