@@ -152,7 +152,7 @@ upgrades: {
         },
         effectDisplay() { return `×${format(this.effect())}` },
         cost: new ExpantaNum(4),
-        unlocked() { return hasUpgrade("p", 11) }
+        unlocked() { return hasUpgrade("p", 11)|| inChallenge("p", 14) }
     },
     13: {
         description: "Each upgrade makes Points ×1.75.",
@@ -170,7 +170,7 @@ upgrades: {
         },
         effectDisplay() { return `×${format(this.effect())}` },
         cost: new ExpantaNum(16),
-        unlocked() { return hasUpgrade("p", 12) }
+        unlocked() { return hasUpgrade("p", 12)|| inChallenge("p", 14) }
     },
     14: {
         description: "Reset Points boost Reset Points.",
@@ -186,7 +186,7 @@ upgrades: {
         },
         effectDisplay() { return `×${format(this.effect())}` },
         cost: new ExpantaNum(64),
-        unlocked() { return hasUpgrade("p", 13) }
+        unlocked() { return hasUpgrade("p", 13)|| inChallenge("p", 14) }
     },
     15: {
         description: "Points boost Reset Points. 4. Instant resets are far less effective than waiting a bit, and require large amounts.",
@@ -202,7 +202,7 @@ upgrades: {
         },
         effectDisplay() { return `×${format(this.effect())}` },
         cost: new ExpantaNum(256),
-        unlocked() { return hasUpgrade("p", 14) }
+        unlocked() { return hasUpgrade("p", 14)|| inChallenge("p", 14) }
     },
     21: {
         description: "6. Too many/too strong upgrades become the only growth method, creating obvious time walls when game content changes little. Upgrade 11 effect +^0.25.",
@@ -214,7 +214,7 @@ upgrades: {
         },
         effectDisplay() { return `+^${format(this.effect())} (Hardcap: +^0.75)` },
         cost: new ExpantaNum(10086),
-        unlocked() { return hasUpgrade("p", 15) }
+        unlocked() { return hasUpgrade("p", 15)||isUnl(2)|| inChallenge("p", 14) }
     },
     22: {
         description: "Discouragement 1 ended. p Reset Points gain exponent +×0.25.",
@@ -227,7 +227,7 @@ upgrades: {
         },
         effectDisplay() { return `+×${format(this.effect())} (Hardcap: +×0.75)` },
         cost: new ExpantaNum(23333),
-        unlocked() { return hasUpgrade("p", 21) }
+        unlocked() { return hasUpgrade("p", 21|| inChallenge("p", 14)   }
     },
     23: {
         description: "7. With low operation amounts, challenges become pure time walls. Unlock a challenge.",
@@ -237,7 +237,7 @@ upgrades: {
         },
         effectDisplay() { return `Unlock ${format(this.effect())} challenge` },
         cost: new ExpantaNum(666666),
-        unlocked() { return hasUpgrade("p", 22) }
+        unlocked() { return hasUpgrade("p", 22)|| inChallenge("p", 14) }
     },
     24: {
         description: "Upgrade 13 base multiplied based on Reset Points.",
@@ -250,7 +250,7 @@ upgrades: {
         },
         effectDisplay() { return `×${format(this.effect())}` },
         cost: new ExpantaNum(1e6),
-        unlocked() { return hasUpgrade("p", 23) }
+        unlocked() { return hasUpgrade("p", 23)|| inChallenge("p", 14) }
     },
     25: {
         description: "Unlock a repeatable buyable. Upgrade 12 is greatly boosted (exponent^2, doesn't trigger in c1 challenge).",
@@ -260,7 +260,7 @@ upgrades: {
         },
         effectDisplay() { return `Unlock ${format(this.effect())} buyable` },
         cost: new ExpantaNum(1e8),
-        unlocked() { return hasUpgrade("p", 24) }
+        unlocked() { return hasUpgrade("p", 24)|| inChallenge("p", 14) }
     },
     31: {
         description: "Strengthen upgrade 15. First five upgrades get +^1.5 effect when boosted by buyables.",
@@ -273,7 +273,7 @@ upgrades: {
         },
         effectDisplay() { return `+^${format(this.effect())}` },
         cost: new ExpantaNum(1e16),
-        unlocked() { return hasUpgrade("p", 25) }
+        unlocked() { return hasUpgrade("p", 25)|| inChallenge("p", 14) }
     },
     32: {
         description: "Unlock Reset Energy. Reset Energy gain per second: Points^(1/18)/500",
@@ -299,7 +299,7 @@ upgrades: {
         },
         effectDisplay() { return `+${format(this.effect())}/s` },
         cost: new ExpantaNum(1e50),
-        unlocked() { return hasUpgrade("p", 31) }
+        unlocked() { return hasUpgrade("p", 31)|| inChallenge("p", 14) }
     },
         33: {
     description: "15. Copied Antimatter Dimensions but didn't do it right. Unlocks a buyable about Condensed Energy (formula: x^(1/9)/100, based on previous tier energy).",
@@ -826,4 +826,5 @@ if (inChallenge("cq", 23))return 0
         //gain = gain.min(1.79e308)
         return gain.floor()
     },
+
 })
