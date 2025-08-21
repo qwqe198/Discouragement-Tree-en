@@ -227,7 +227,7 @@ upgrades: {
         },
         effectDisplay() { return `+×${format(this.effect())} (Hardcap: +×0.75)` },
         cost: new ExpantaNum(23333),
-        unlocked() { return hasUpgrade("p", 21||inChallenge("p", 14)   }
+        unlocked() { return hasUpgrade("p", 21)||inChallenge("p", 14)   }
     },
     23: {
         description: "7. With low operation amounts, challenges become pure time walls. Unlock a challenge.",
@@ -828,4 +828,5 @@ if (inChallenge("cq", 23))return 0
     },
 
 })
+
 
